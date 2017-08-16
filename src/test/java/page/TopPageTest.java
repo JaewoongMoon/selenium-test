@@ -20,16 +20,7 @@ import java.util.Map;
 
 public class TopPageTest extends TestBase {
 	
-	/*
-	 * <Available Drivers>
-	 * HtmlUnitDriver();
-	 * FirefoxDriver();
-	 * InternetExplorerDriver();
-	 * ChromeDriver();
-	 * new RemoteWebDriver(new URL("http://localhost:3001/wd/hub"), DesiredCapabilities.iphone());
-	 * */
 	private String testURL = "alpha.aegis-wall.com";
-	
 	
 	@Before
 	public void setUp(){
@@ -63,41 +54,10 @@ public class TopPageTest extends TestBase {
 		ContactPage contactPage = topPage.moveContactPage();
 		
 		assertThat(contactPage.getTitle(), is("Ç®ñ‚Ç¢çáÇÌÇπ"));
-		driver.quit();
+		
+		
+		//driver.quit();
     }
-    
-    private WebDriver getFireFoxDriver(){
-    	return new FirefoxDriver();
-    }
-    
-    
-    
-    private WebDriver getIEDriver(){
-
-    	File file = new File("C:/Selenium/IEDriverServer.exe");
-    	System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
-    	WebDriver driver = new InternetExplorerDriver();
-    	return driver;
-    	
-    	/*String PROXY = testURL;
-    	
-    	org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
-    	proxy.setHttpProxy(PROXY)
-    	     .setFtpProxy(PROXY)
-    	     .setSslProxy(PROXY);
-    	DesiredCapabilities cap = new DesiredCapabilities();
-    	cap.setCapability(CapabilityType.PROXY, proxy);    	
-    	WebDriver driver = new InternetExplorerDriver(cap);
-    	*/
-    	
-    }
-    
-    private WebDriver getChromeDriver(){
-    	File file = new File("C:/Selenium/chromedriver.exe");
-    	System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-    	WebDriver driver = new ChromeDriver();
-    	return driver;
-    }
-	
+  
     
 }
